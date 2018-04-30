@@ -4,7 +4,7 @@ possible to specify whether terms should be published or not. Users with the
 appropriate permission may access unpublished terms.
 
 ## Installation
-1. Download the module
+1. `composer require nelson-ph/termstatus`
 2. Enable the module. In the admin UI, it is listed under Taxonomy Term Status package.
 3. Set appropriate permissions, existing roles are granted view permissions to keep the core logic.
 
