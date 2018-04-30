@@ -19,3 +19,4 @@ The extension is done to allow usage of isPublished and get/set methods for the 
 1. Vocabulary settings to set default state for the terms.
 2. ~~Update Term entity to allow usage of isPublished().~~
 3. On /admin/structure/taxonomy/manage/{vid}/overview page display the terms status.
+4. ~~Add views field support.~~
