@@ -71,3 +71,33 @@ function termstatus_entity_access(EntityInterface $entity, $operation, AccountIn
 
   }
 }
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function termstatus_views_data_alter(array &$data) {
+  $data['taxonomy_term_field_data']['status'] = [
+    'title' => t('Taxonomy Term own status'),
+    'help' => t('Whether or not the taxonomy term is published.'),
+    'field' => [
+      'id' => 'field',
+    ],
+    'filter' => [
+      // ID of filter handler plugin to use.
+      'id' => 'boolean',
+      // Override the generic field title, so that the filter uses a different
+      // label in the UI.
+      'label' => t('Published term'),
+      // Override the default BooleanOperator filter handler's 'type' setting,
+      // to display this as a "Yes/No" filter instead of a "True/False" filter.
+      'type' => 'yes-no',
+      // Override the default Boolean filter handler's 'use_equal' setting, to
+      // make the query use 'boolean_field = 1' instead of 'boolean_field <> 0'.
+      'use_equal' => TRUE,
+    ],
+    'sort' => [
+      'id' => 'standard',
+    ],
+    'entity field' => 'status',
+  ];
+}
